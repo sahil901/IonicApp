@@ -1,0 +1,21 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>History Page</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-row size="12">
+    <ion-col size="12">
+      <ion-list>
+        <ion-item button *ngFor="let ProdHisDet of hProd">
+          <ion-col size="8" (click)="viewDetails(ProdHisDet.name)">
+            <ion-label>
+              {{ProdHisDet.name}}
+            </ion-label>
+          </ion-col>
+        </ion-item>
+      </ion-list>
+    </ion-col>
+  </ion-row>
+</ion-content>

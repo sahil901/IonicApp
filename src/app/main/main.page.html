@@ -1,0 +1,122 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Main Page
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="medium">Cash Register App</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content class="ion-padding">
+    <ion-grid>
+      <ion-row id="row">
+        <ion-col size="9">
+          <ion-label size="medium">
+            <h1><span style="color: white;">{{chosenProd.name}}</span></h1>
+          </ion-label>
+        </ion-col>
+        <ion-col size="3">
+          <ion-button style="--background:red;--color:blue" [routerLink]="['manager']">MANAGER</ion-button>
+        </ion-col>
+      </ion-row>
+      <ion-row id="row2">
+        <ion-col size-sm="12">
+          <ion-row id="firstRow" size-sm="12">
+            <ion-col size="3">
+              <ion-button (click)="snum($event)" expand="square" style="--background:#DCDCDC;--color:black">1
+              </ion-button>
+            </ion-col>
+            <ion-col size="3">
+              <ion-button (click)="snum($event)" expand="square" style="--background:#DCDCDC;--color:black">2
+              </ion-button>
+            </ion-col>
+            <ion-col size="3">
+              <ion-button (click)="snum($event)" expand="square" style="--background:#DCDCDC;--color:black">3
+              </ion-button>
+            </ion-col>
+            <ion-col size="3">
+              <ion-button shape="square" style="--background:#DCDCDC;--color:black" id="number" fill="solid">
+                {{subTotal}}</ion-button>
+            </ion-col>
+          </ion-row>
+          <ion-row id="secondRow" size-sm="12">
+            <ion-col size="9">
+              <ion-row>
+                <ion-col size="4">
+                  <ion-button (click)="snum($event)" expand="square" style="--background:#DCDCDC;--color:black">4
+                  </ion-button>
+                </ion-col>
+                <ion-col size="4">
+                  <ion-button (click)="snum($event)" expand="square" style="--background:#DCDCDC;--color:black">5
+                  </ion-button>
+                </ion-col>
+                <ion-col (click)="snum($event)" size="4">
+                  <ion-button (click)="snum($event)" expand="square" style="--background:#DCDCDC;--color:black">6
+                  </ion-button>
+                </ion-col>
+              </ion-row>
+              <ion-row>
+                <ion-col (click)="snum($event)" size="4">
+                  <ion-button (click)="snum($event)" expand="square" style="--background:#DCDCDC;--color:black">7
+                  </ion-button>
+                </ion-col>
+                <ion-col size="4">
+                  <ion-button (click)="snum($event)" expand="square" style="--background:#DCDCDC;--color:black">8
+                  </ion-button>
+                </ion-col>
+                <ion-col size="4">
+                  <ion-button (click)="snum($event)" expand="square" style="--background:#DCDCDC;--color:black">9
+                  </ion-button>
+                </ion-col>
+              </ion-row>
+              <ion-row>
+                <ion-col (click)="snum($event)" size="4" offset="4">
+                  <ion-button (click)="snum($event)" expand="square" style="--background:#DCDCDC;--color:black">0
+                  </ion-button>
+                </ion-col>
+              </ion-row>
+            </ion-col>
+            <ion-col size="3">
+              <ion-button (click)="purchaseItem($event)" expand="square" shape="round"
+                style="--border-radius:25px;--background:blue;--color:black" id="buy" fill="solid" size="medium">
+                Buy
+              </ion-button>
+            </ion-col>
+          </ion-row>
+        </ion-col>
+      </ion-row>
+      <ion-row id="row3">
+        <ion-col size-md="12">
+          <ion-label size="large">
+            <h1> {{chosenQuantity}} </h1>
+          </ion-label>
+        </ion-col>
+      </ion-row>
+      <ion-row id="row4" size="12">
+        <ion-col size="12">
+          <ion-list id="expenses-list">
+            <ion-item button *ngFor="let product of Products">
+              <ion-col size="8" (click)="chooseItem(product)">
+                <ion-label>
+                  {{product.name}}
+                </ion-label>
+                <ion-label style="--color:red">
+                  {{product.pPrice}}
+                </ion-label>
+              </ion-col>
+              <ion-col size="2" offset="2">
+                <ion-label>
+                  {{product.pQuantity}}
+                </ion-label>
+              </ion-col>
+            </ion-item>
+          </ion-list>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-content>
+</ion-content>

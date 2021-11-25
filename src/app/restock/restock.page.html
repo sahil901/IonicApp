@@ -1,0 +1,27 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Restock Page</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-input placeholder="Enter quantity that you want to add to current stock" type="string" [(ngModel)]="inputValue"></ion-input>
+  <ion-button (click)="prodRestock()">Update Stock</ion-button>
+
+
+  <ion-row size="12">
+    <ion-col size="12">
+      <ion-list>
+        <ion-item button *ngFor="let product of prodList">
+          <ion-col size="8" (click)="selectRestockProd(product)">
+            <ion-label>
+              {{product.name}} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              {{product.pQuantity}}
+            </ion-label>
+          </ion-col>
+        </ion-item>
+      </ion-list>
+    </ion-col>
+  </ion-row>
+</ion-content>
